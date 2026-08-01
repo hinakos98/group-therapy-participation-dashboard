@@ -55,7 +55,7 @@ Interactive Dashboard
 
 ---
 
-# 📁 Data Sources Samples
+# 📁 Data Source Samples
 
 ![Data Sources](screenshots/ClientAppointment.png)
 ![Data Sources](screenshots/GroupRoster.png)
@@ -157,11 +157,7 @@ COUNTROWS(
 
 # 📋 Business Rules
 
-| Attendance | Status = "Attended" |
-| Graduated | 5–7 sessions attended |
-| Incomplete | 2–4 sessions attended |
-| Dropout | 0–1 sessions attended |
-| Enrollment | Include participants with no attendance |
+![Applied Steps](screenshots/DynamicCohortAssignment.png)
 
 ---
 
