@@ -116,7 +116,7 @@ Custom DAX measures were developed to support attendance and outcome reporting.
 
 ## Total Enrolled
 
-DAX
+```DAX
 Total Enrolled =
 COUNTROWS(
     SUMMARIZE(
@@ -125,7 +125,7 @@ COUNTROWS(
         'Main Data'[GroupName]
     )
 )
-
+```
 
 ---
 
