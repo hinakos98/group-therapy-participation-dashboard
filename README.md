@@ -101,36 +101,6 @@ Attendance is assigned to the correct cohort using configurable date ranges.
 
 ---
 
-# 📐 Data Model
-
-The model follows a relational design connecting enrollment, attendance, providers, and group configuration tables.
-
-SharePoint Excel Files
-        │
-        ├──────────────┐
-        │              │
-        ▼              ▼
-Group Roster     Attendance
-        │              │
-        └──────┬───────┘
-               ▼
-        Left Outer Join
-               │
-               ▼
-     Cohort Assignment Logic
-(ServiceDate between StartDate and EndDate)
-               │
-               ▼
-       Power BI Data Model
-               │
-               ▼
-          DAX Measures
-               │
-               ▼
-     Executive Dashboard
-
----
-
 
 # 📈 DAX Measures
 
@@ -177,7 +147,7 @@ COUNTROWS(
         ),
         CALCULATE(
             COUNTROWS('Main Data'),
-            'Main Data'[STATUS]="Kept"
+            'Main Data'[STATUS]="Attended"
         ) >= 5
     )
 )
@@ -187,9 +157,7 @@ COUNTROWS(
 
 # 📋 Business Rules
 
-| Metric | Rule |
-|--------|------|
-| Attendance | Status = "Kept" |
+| Attendance | Status = "Attended" |
 | Graduated | 5–7 sessions attended |
 | Incomplete | 2–4 sessions attended |
 | Dropout | 0–1 sessions attended |
@@ -242,11 +210,7 @@ Created configurable mapping tables so new groups can be added without changing 
 - Graduation monitoring
 - Dropout analysis
 - Cohort comparison
-- Interactive slicers
-- Drill-through reporting
-
-![KPI Cards](screenshots/kpi-cards.png)
-
+  
 ---
 
 # ✅ Results
@@ -298,39 +262,5 @@ Created configurable mapping tables so new groups can be added without changing 
 
 ---
 
-# 📸 Additional Screenshots
 
-## Executive Dashboard
-
-![Dashboard](screenshots/dashboard-overview.png)
-
----
-
-## KPI Cards
-
-![KPIs](screenshots/kpi-cards.png)
-
----
-
-## Cohort Matrix
-
-![Matrix](screenshots/cohort-matrix.png)
-
----
-
-## Power Query Applied Steps
-
-![Applied Steps](screenshots/applied-steps.png)
-
----
-
-## Data Model
-
-![Model](screenshots/data-model.png)
-
----
-
-## Before vs After Transformation
-
-![Transformation](screenshots/before-after.png)
 
