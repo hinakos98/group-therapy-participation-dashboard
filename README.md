@@ -100,15 +100,37 @@ Attendance is assigned to the correct cohort using configurable date ranges.
 ![Applied Steps](screenshots/DynamicCohortAssignment.png)
 
 ---
-```
+
 # 📐 Data Model
 
 The model follows a relational design connecting enrollment, attendance, providers, and group configuration tables.
 
-![Data Model](screenshots/data-model.png)
+SharePoint Excel Files
+        │
+        ├──────────────┐
+        │              │
+        ▼              ▼
+Group Roster     Attendance
+        │              │
+        └──────┬───────┘
+               ▼
+        Left Outer Join
+               │
+               ▼
+     Cohort Assignment Logic
+(ServiceDate between StartDate and EndDate)
+               │
+               ▼
+       Power BI Data Model
+               │
+               ▼
+          DAX Measures
+               │
+               ▼
+     Executive Dashboard
 
 ---
-```
+
 
 # 📈 DAX Measures
 
