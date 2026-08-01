@@ -17,9 +17,7 @@ This project automated the reporting process by combining enrollment, attendance
 # 📊 Dashboard Overview
 
 ![Dashboard Overview](screenshots/dashboard1.png)
-(screenshots/dashboard2.png)
-https://github.com/hinakos98/group-therapy-participation-dashboard/blob/main/screenshots/dashboard1.png
-
+![Dashboard Overview](screenshots/dashboard2.png)
 
 The dashboard provides:
 
@@ -34,33 +32,32 @@ The dashboard provides:
 
 # 🏗 Solution Architecture
 
-![Architecture](screenshots/architecture-diagram.png)
+# Solution Architecture
 
-```
-SharePoint Excel Files
-          │
-          ▼
-     Power Query ETL
-          │
-          ▼
-      Data Model
-          │
-          ▼
-      DAX Measures
-          │
-          ▼
- Power BI Dashboard
-```
+SharePoint Files
+
+↓
+
+Power Query
+
+↓
+
+Data Model
+
+↓
+
+DAX Measures
+
+↓
+
+Interactive Dashboard
+
 
 ---
 
 # 📁 Data Sources
 
-| Source | Purpose |
-|---------|---------|
-| Enrollment | Participant enrollment records |
-| Attendance | Session attendance history |
-| Group Mapping | Cohort definitions and reporting periods |
+![Data Sources](screenshots/ClientAppointment.png)
 
 ---
 
