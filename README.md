@@ -157,7 +157,7 @@ COUNTROWS(
 
 # 📋 Business Rules
 
-![Applied Steps](screenshots/DynamicCohortAssignment.png)
+![Applied Steps](screenshots/dashboard3.png)
 
 ---
 
