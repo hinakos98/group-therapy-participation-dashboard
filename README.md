@@ -55,10 +55,11 @@ Interactive Dashboard
 
 ---
 
-# 📁 Data Sources
+# 📁 Data Sources Samples
 
 ![Data Sources](screenshots/ClientAppointment.png)
-
+![Data Sources](screenshots/GroupRoster.png)
+![Data Sources](screenshots/GroupDates.png)
 ---
 
 # 🔄 ETL Process
@@ -86,19 +87,7 @@ The reporting model starts with enrollment data rather than attendance data to e
 
 ### Left Outer Join
 
-```m
-MergedAttendance =
-    Table.NestedJoin(
-        GroupMembers,
-        {"PatientID"},
-        AttendanceData,
-        {"PatientID"},
-        "AttendanceData",
-        JoinKind.LeftOuter
-    )
-```
-
-![Power Query Merge](screenshots/power-query-merge.png)
+![Power Query Merge](screenshots/PreservingEnrolledParticipants.png)
 
 ---
 
@@ -108,24 +97,10 @@ Participants may enroll in multiple behavioral health groups over time.
 
 Attendance is assigned to the correct cohort using configurable date ranges.
 
-```m
-AssignedGroup =
-    Table.AddColumn(
-        ExpandedGroups,
-        "AssignedGroup",
-        each
-            if [ServiceDate] = null then [GroupName]
-            else if [ServiceDate] >= [StartDate]
-                and [ServiceDate] <= [EndDate]
-            then [GroupName]
-            else null
-    )
-```
-
-![Applied Steps](screenshots/applied-steps.png)
+![Applied Steps](screenshots/DynamicCohortAssignment.png)
 
 ---
-
+```
 # 📐 Data Model
 
 The model follows a relational design connecting enrollment, attendance, providers, and group configuration tables.
@@ -133,6 +108,7 @@ The model follows a relational design connecting enrollment, attendance, provide
 ![Data Model](screenshots/data-model.png)
 
 ---
+```
 
 # 📈 DAX Measures
 
@@ -140,7 +116,7 @@ Custom DAX measures were developed to support attendance and outcome reporting.
 
 ## Total Enrolled
 
-```DAX
+DAX
 Total Enrolled =
 COUNTROWS(
     SUMMARIZE(
@@ -149,7 +125,7 @@ COUNTROWS(
         'Main Data'[GroupName]
     )
 )
-```
+
 
 ---
 
